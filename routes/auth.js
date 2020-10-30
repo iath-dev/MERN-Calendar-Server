@@ -9,7 +9,7 @@ const router = Router()
 
 const { signup, login, renew } = require('../controllers/auth')
 const fieldValidator = require('../middlewares/fieldValidator');
-const validateToke = require('../middlewares/validateToken')
+const validateToken = require('../middlewares/validateToken')
 
 router.post(
     '/',
@@ -32,6 +32,6 @@ router.post(
     signup
 )
 
-router.get('/renew', validateToke, renew)
+router.get('/renew', validateToken, renew)
 
 module.exports = router

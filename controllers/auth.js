@@ -91,7 +91,7 @@ const login = async (req, res = response) => {
 
         res.status(500).json({
             ok: false,
-            errors: 'Ups, no se pudo crear el usuario'
+            errors: 'Ups, no se pudo iniciar sesión'
         })
     }
 }
@@ -99,7 +99,7 @@ const login = async (req, res = response) => {
 const renew = async (req = request, res = response) => {
 
     try {
-        const { uid, name } = req
+        const { auth: { uid, name } } = req
     
         const token = await generateToken({ uid, name })
     
@@ -115,7 +115,7 @@ const renew = async (req = request, res = response) => {
 
         res.status(500).json({
             ok: false,
-            errors: 'Ups, no se pudo crear el usuario'
+            errors: 'Ups, no se pudo recrear el token'
         })
     }
 }

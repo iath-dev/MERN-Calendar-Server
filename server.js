@@ -5,6 +5,7 @@ const cors = require('cors')
 const dbConnection = require('./db/config')
 
 // Crear el servidor de express
+console.log('Iniciando servidor....')
 const app = express()
 
 // Base de Datos
@@ -27,6 +28,7 @@ app.use(express.static('public'))
 // TODO Auth: crear, login, renew
 app.use('/api/auth', require('./routes/auth'))
 // TODO CRUD: Eventos
+app.use('/api/events', require('./routes/events'))
 
 // Escuchar las peticiones
 app.listen(process.env.PORT, () => {

@@ -17,8 +17,7 @@ const validateToken = (req = request, res = response, next = function(){}) => {
     try {
         const { uid, name } = jwt.verify(authorization, process.env.PASS_KEY)
 
-        req.uid = uid
-        req.name = name
+        req.auth = { uid, name }
     } catch (error) {
         // console.error(error)
         return res.status(401).json({
